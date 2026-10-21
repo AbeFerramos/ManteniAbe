@@ -1,5 +1,5 @@
-const CACHE = 'aviso-mantenimiento-v1';
-const FILES = ['./', './index.html', './styles.css', './app.js', './manifest.webmanifest', './icon.svg', './logo-abri-recortado.png'];
+const CACHE = 'aviso-mantenimiento-v2';
+const FILES = ['./', './index.html', './styles.css', './app.js', './manifest.webmanifest', './icon.svg', './logo-abri-recortado.png', './logo-icon-192.png', './logo-icon-512.png', './logo-icon-maskable-512.png', './apple-touch-icon.png'];
 self.addEventListener('install', event => event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(FILES)).then(() => self.skipWaiting())));
 self.addEventListener('activate', event => event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(key => key !== CACHE).map(key => caches.delete(key)))).then(() => self.clients.claim())));
 self.addEventListener('fetch', event => {
