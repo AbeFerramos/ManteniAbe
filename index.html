@@ -77,5 +77,18 @@
     <div id="toast" class="toast" role="status" aria-live="polite"></div>
   </div>
   <script src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      const hadController = Boolean(navigator.serviceWorker.controller);
+      let reloadedForUpdate = false;
+      navigator.serviceWorker.register('./sw.js', { updateViaCache: 'none' }).then(registration => registration.update()).catch(() => {});
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        if (hadController && !reloadedForUpdate) {
+          reloadedForUpdate = true;
+          location.reload();
+        }
+      });
+    }
+  </script>
 </body>
 </html>
