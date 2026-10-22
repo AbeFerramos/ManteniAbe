@@ -9,14 +9,14 @@
   <link rel="icon" href="icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="stylesheet" href="styles.css">
-  <title>Aviso · Mantenimiento</title>
+  <title>UrvAbe · Mantenimiento</title>
 </head>
 <body>
   <div class="app-shell">
     <header class="topbar">
       <a class="brand" href="#inicio" aria-label="Inicio">
-        <span class="brand-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a5 5 0 0 0-6.4 6.4L3 18l3 3 5.3-5.3a5 5 0 0 0 6.4-6.4l-3.1 3.1-3-3 3.1-3.1Z"/></svg></span>
-        <span><strong>AVISO</strong><small>MANTENIMIENTO</small></span>
+        <img class="brand-logo" src="logo-icon-192.png" alt="UrvAbe">
+        <span><strong>URVABE</strong><small>MANTENIMIENTO</small></span>
       </a>
       <button class="install-button" id="installButton" hidden>Instalar app</button>
       <span class="local-label"><i></i> En este dispositivo</span>
@@ -29,11 +29,13 @@
           <h1>Partes de<br><em>mantenimiento.</em></h1>
           <p class="intro-copy">Anota el aviso, asigna su orden de trabajo y sigue su estado.</p>
         </div>
-        <div class="intro-logo"><img src="logo-abri-recortado.png" alt="Abri Web Projects"></div>
       </section>
 
       <section class="stats" aria-label="Resumen de partes">
         <article class="stat-card"><span class="stat-icon pending-icon">◷</span><div><strong id="pendingCount">0</strong><small>Pendientes</small></div></article>
+        <article class="stat-card"><span class="stat-icon progress-icon">↻</span><div><strong id="progressCount">0</strong><small>En proceso</small></div></article>
+        <article class="stat-card"><span class="stat-icon postponed-icon">Ⅱ</span><div><strong id="postponedCount">0</strong><small>Aplazados</small></div></article>
+        <article class="stat-card"><span class="stat-icon referred-icon">↗</span><div><strong id="referredCount">0</strong><small>Derivados</small></div></article>
         <article class="stat-card"><span class="stat-icon done-icon">✓</span><div><strong id="doneCount">0</strong><small>Hechos</small></div></article>
         <article class="stat-card"><span class="stat-icon closed-icon">⌑</span><div><strong id="closedCount">0</strong><small>Cerrados</small></div></article>
       </section>
@@ -54,11 +56,11 @@
         </div>
 
         <div class="list-panel">
-          <div class="list-heading"><div><p class="eyebrow">REGISTRO</p><h2>Partes recientes <span id="ticketTotal">0</span></h2></div><button id="exportButton" class="export-button" type="button" title="Exportar partes">Exportar <span>↗</span></button></div>
+          <div class="list-heading"><div><p class="eyebrow">REGISTRO</p><h2>Partes recientes <span id="ticketTotal">0</span></h2></div><div class="list-tools"><input id="importFile" type="file" accept=".csv,text/csv" hidden><button id="importButton" class="export-button" type="button" title="Importar partes desde CSV">Importar CSV <span>↧</span></button><button id="exportButton" class="export-button" type="button" title="Exportar partes">Exportar <span>↗</span></button></div></div>
           <div class="toolbar">
             <label class="search-box"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.3"/><path d="m16 16 4.5 4.5"/></svg><input id="searchInput" type="search" placeholder="Buscar orden o avería…" aria-label="Buscar partes"></label>
             <div class="filters" role="group" aria-label="Filtrar por estado">
-              <button class="filter-chip active" data-filter="todos">Todos</button><button class="filter-chip" data-filter="pendiente">Pendiente</button><button class="filter-chip" data-filter="hecho">Hecho</button><button class="filter-chip" data-filter="cerrado">Cerrado</button>
+              <button class="filter-chip active" data-filter="todos">Todos</button><button class="filter-chip" data-filter="pendiente">Pendiente</button><button class="filter-chip" data-filter="en_proceso">En proceso</button><button class="filter-chip" data-filter="aplazado">Aplazado</button><button class="filter-chip" data-filter="derivado">Derivado</button><button class="filter-chip" data-filter="hecho">Hecho</button><button class="filter-chip" data-filter="cerrado">Cerrado</button>
             </div>
           </div>
           <div id="ticketList" class="ticket-list" aria-live="polite"></div>
@@ -70,7 +72,7 @@
           </section>
         </div>
       </section>
-      <footer><span>AVISO <b>·</b> MANTENIMIENTO</span><span>REGISTRO DE INCIDENCIAS <b>2026</b></span></footer>
+      <footer><span>URVABE <b>·</b> MANTENIMIENTO</span><span>REGISTRO DE INCIDENCIAS <b>2026</b></span></footer>
     </main>
     <div id="toast" class="toast" role="status" aria-live="polite"></div>
   </div>
